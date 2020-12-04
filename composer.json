@@ -1,0 +1,42 @@
+{
+    "name": "b13/graceful-cache",
+    "description": "TYPO3 cache backends which do not always have to be enabled",
+    "type": "typo3-extension",
+    "license": [
+        "GPL-2.0-or-later"
+    ],
+    "authors": [
+        {
+            "name": "Benni Mack",
+            "email": "benni@typo3.org",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+		"php": "^7.2",
+        "psr/log": "^1.1",
+		"typo3/cms-core": "^9.5 || ^10.4 || ^11.0"
+    },
+	"suggest": {
+		"ext-redis": "When Redis Cache Backends are in use.",
+		"ext-memcached": "When Memcached Cache Backends are in use."
+	},
+    "autoload": {
+        "psr-4": {
+            "B13\\GracefulCache\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "B13\\GracefulCache\\Tests\\": "tests/"
+        }
+    },
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "graceful_cache"
+		}
+	},
+    "require-dev": {
+        "typo3/coding-standards": "^0.2.0"
+    }
+}
