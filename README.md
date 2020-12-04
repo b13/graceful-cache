@@ -9,10 +9,24 @@ without active caches.
 For this reason, we provide Cache Backends which simply
 catch all Exceptions.
 
+We use this for High Availability projects, where a Redis
+sentinel cluster is not available but a Redis service is running
+on each application server to ensure that TYPO3 does never
+throw a 50x HTTP error because of a caching issue.
 
 ## Installation
 
-`composer req b13/graceful-cache` and
+When running TYPO3 in Composer Mode `composer req b13/graceful-cache` or
+download the extension "graceful_cache" via the Extension Manager
+from extensions.typo3.org.
+
+## Configuration
+
+Use this in your LocalConfiguration.php or AdditionalConfiguration.php
+to e.g. reconfigure the "pages" Cache (or "cache_pages" prior to TYPO3 v10)
+to run with the graceful Redis Cache Backend:
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['pages']['backend'] = \B13\GracefulCache\Backend\RedisCacheBackend::class;
 
 ## License
 
