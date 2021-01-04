@@ -13,9 +13,9 @@
         }
     ],
     "require": {
-		"php": "^7.2",
-        "psr/log": "^1.1",
-		"typo3/cms-core": "^9.5 || ^10.4 || ^11.0"
+        "php": "^7.2",
+        "psr/log": "^1.0",
+        "typo3/cms-core": "^9.5 || ^10.4 || ^11.0"
     },
 	"suggest": {
 		"ext-redis": "When Redis Cache Backends are in use.",
