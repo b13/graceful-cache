@@ -1,7 +1,7 @@
 {
     "name": "b13/graceful-cache",
     "description": "TYPO3 cache backends which do not always have to be enabled",
-    "type": "typo3-extension",
+    "type": "typo3-cms-extension",
     "license": [
         "GPL-2.0-or-later"
     ],
@@ -38,5 +38,8 @@
 	},
     "require-dev": {
         "typo3/coding-standards": "^0.2.0"
+    },
+    "config": {
+        "sort-packages": true
     }
 }

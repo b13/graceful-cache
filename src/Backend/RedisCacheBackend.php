@@ -9,7 +9,7 @@ declare(strict_types=1);
  * of the License, or any later version.
  */
 
-namespace B13\GracefulCache;
+namespace B13\GracefulCache\Backend;
 
 use Psr\Log\LoggerAwareInterface;
 use TYPO3\CMS\Core\Cache\Backend\RedisBackend;
