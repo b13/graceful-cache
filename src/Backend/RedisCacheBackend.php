@@ -118,5 +118,33 @@ class RedisCacheBackend extends RedisBackend implements LoggerAwareInterface
             }
         }
     }
+
+    public function flush()
+    {
+        if ($this->connected) {
+            try {
+                parent::flush();
+            } catch (\Throwable $e) {
+                $this->logger->error('Error while flushing complete cache in Redis Cache', [
+                    'message' => $e->getMessage(),
+                    'error' => $e
+                ]);
+            }
+        }
+    }
+
+    public function flushByTag($tag)
+    {
+        if ($this->connected) {
+            try {
+                parent::flushByTag($tag);
+            } catch (\Throwable $e) {
+                $this->logger->error('Error while flushing cache tag in Redis Cache', [
+                    'message' => $e->getMessage(),
+                    'error' => $e
+                ]);
+            }
+        }
+    }
 }
 
