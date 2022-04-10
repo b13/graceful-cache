@@ -28,6 +28,10 @@ to run with the graceful Redis Cache Backend:
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['pages']['backend'] = \B13\GracefulCache\Backend\RedisCacheBackend::class;
 
+Or configure with Memcached Cache Backend:
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['pages']['backend'] = \B13\GracefulCache\Backend\MemcachedCacheBackend::class;
+
 ## License
 
 The extension is licensed under GPL v2+, same as the TYPO3 Core. For details see the LICENSE file in this repository.
