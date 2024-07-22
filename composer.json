@@ -8,14 +8,14 @@
     "authors": [
         {
             "name": "Benni Mack",
-            "email": "benni@typo3.org",
+            "email": "typo3@b13.com",
             "role": "Maintainer"
         }
     ],
     "require": {
         "php": "^7.2 || ^8.0",
         "psr/log": "^1.0",
-        "typo3/cms-core": "^9.5 || ^10.4 || ^11.0"
+        "typo3/cms-core": "^9.5 || ^10.4 || ^11.0 || ^12.0"
     },
 	"suggest": {
 		"ext-redis": "When Redis Cache Backends are in use.",
