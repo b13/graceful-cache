@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -19,19 +20,19 @@ use TYPO3\CMS\Core\Cache\Backend\RedisBackend;
  */
 class RedisCacheBackend extends RedisBackend implements LoggerAwareInterface
 {
-    public function initializeObject()
+    public function initializeObject(): void
     {
         try {
             parent::initializeObject();
         } catch (\Throwable $e) {
             $this->logger->error('Could not initialize Redis Cache Backend', [
                 'message' => $e->getMessage(),
-                'error' => $e
+                'error' => $e,
             ]);
         }
     }
 
-    public function get($entryIdentifier)
+    public function get($entryIdentifier): mixed
     {
         if ($this->connected) {
             try {
@@ -39,14 +40,14 @@ class RedisCacheBackend extends RedisBackend implements LoggerAwareInterface
             } catch (\Throwable $e) {
                 $this->logger->error('Error while fetching from Redis Cache', [
                     'message' => $e->getMessage(),
-                    'error' => $e
+                    'error' => $e,
                 ]);
             }
         }
         return false;
     }
 
-    public function has($entryIdentifier)
+    public function has($entryIdentifier): bool
     {
         if ($this->connected) {
             try {
@@ -54,14 +55,14 @@ class RedisCacheBackend extends RedisBackend implements LoggerAwareInterface
             } catch (\Throwable $e) {
                 $this->logger->error('Error while fetching from Redis Cache', [
                     'message' => $e->getMessage(),
-                    'error' => $e
+                    'error' => $e,
                 ]);
             }
         }
         return false;
     }
 
-    public function findIdentifiersByTag($tag)
+    public function findIdentifiersByTag($tag): array
     {
         if ($this->connected) {
             try {
@@ -69,14 +70,14 @@ class RedisCacheBackend extends RedisBackend implements LoggerAwareInterface
             } catch (\Throwable $e) {
                 $this->logger->error('Error while fetching from Redis Cache', [
                     'message' => $e->getMessage(),
-                    'error' => $e
+                    'error' => $e,
                 ]);
             }
         }
         return [];
     }
 
-    public function set($entryIdentifier, $data, array $tags = [], $lifetime = null)
+    public function set($entryIdentifier, $data, array $tags = [], $lifetime = null): void
     {
         if ($this->connected) {
             try {
@@ -84,13 +85,13 @@ class RedisCacheBackend extends RedisBackend implements LoggerAwareInterface
             } catch (\Throwable $e) {
                 $this->logger->error('Error while setting data into Redis Cache', [
                     'message' => $e->getMessage(),
-                    'error' => $e
+                    'error' => $e,
                 ]);
             }
         }
     }
 
-    public function remove($entryIdentifier)
+    public function remove($entryIdentifier): bool
     {
         if ($this->connected) {
             try {
@@ -98,14 +99,14 @@ class RedisCacheBackend extends RedisBackend implements LoggerAwareInterface
             } catch (\Throwable $e) {
                 $this->logger->error('Error while removing data from Redis Cache', [
                     'message' => $e->getMessage(),
-                    'error' => $e
+                    'error' => $e,
                 ]);
             }
         }
         return false;
     }
 
-    public function collectGarbage()
+    public function collectGarbage(): void
     {
         if ($this->connected) {
             try {
@@ -113,13 +114,13 @@ class RedisCacheBackend extends RedisBackend implements LoggerAwareInterface
             } catch (\Throwable $e) {
                 $this->logger->error('Error while collecting garbage in Redis Cache', [
                     'message' => $e->getMessage(),
-                    'error' => $e
+                    'error' => $e,
                 ]);
             }
         }
     }
 
-    public function flush()
+    public function flush(): void
     {
         if ($this->connected) {
             try {
@@ -127,13 +128,13 @@ class RedisCacheBackend extends RedisBackend implements LoggerAwareInterface
             } catch (\Throwable $e) {
                 $this->logger->error('Error while flushing complete cache in Redis Cache', [
                     'message' => $e->getMessage(),
-                    'error' => $e
+                    'error' => $e,
                 ]);
             }
         }
     }
 
-    public function flushByTag($tag)
+    public function flushByTag($tag): void
     {
         if ($this->connected) {
             try {
@@ -141,10 +142,9 @@ class RedisCacheBackend extends RedisBackend implements LoggerAwareInterface
             } catch (\Throwable $e) {
                 $this->logger->error('Error while flushing cache tag in Redis Cache', [
                     'message' => $e->getMessage(),
-                    'error' => $e
+                    'error' => $e,
                 ]);
             }
         }
     }
 }
-
